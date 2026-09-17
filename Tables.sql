@@ -1,55 +1,55 @@
 CREATE TABLE owners (
-    owner_id INT PRIMARY KEY AUTO_INCREMENT,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    phone VARCHAR(20),
-    email VARCHAR(100),
-    address VARCHAR(150)
+    owner_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    phone TEXT,
+    email TEXT,
+    address TEXT
 );
  
 CREATE TABLE veterinarians (
-    vet_id INT PRIMARY KEY AUTO_INCREMENT,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    specialization VARCHAR(50),
-    phone VARCHAR(20)
+    vet_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    specialization TEXT,
+    phone TEXT
 );
  
 CREATE TABLE pets (
-    pet_id INT PRIMARY KEY AUTO_INCREMENT,
-    owner_id INT NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    species VARCHAR(30),
-    breed VARCHAR(50),
-    birth_date DATE,
+    pet_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    owner_id INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    species TEXT,
+    breed TEXT,
+    birth_date TEXT,
     FOREIGN KEY (owner_id) REFERENCES owners(owner_id)
 );
  
 CREATE TABLE appointments (
-    appointment_id INT PRIMARY KEY AUTO_INCREMENT,
-    pet_id INT NOT NULL,
-    vet_id INT NOT NULL,
-    appointment_date DATETIME NOT NULL,
-    reason VARCHAR(150),
-    status VARCHAR(20) DEFAULT 'Scheduled',
+    appointment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pet_id INTEGER NOT NULL,
+    vet_id INTEGER NOT NULL,
+    appointment_date TEXT NOT NULL,
+    reason TEXT,
+    status TEXT DEFAULT 'Scheduled',
     FOREIGN KEY (pet_id) REFERENCES pets(pet_id),
     FOREIGN KEY (vet_id) REFERENCES veterinarians(vet_id)
 );
  
 CREATE TABLE treatments (
-    treatment_id INT PRIMARY KEY AUTO_INCREMENT,
-    appointment_id INT NOT NULL,
-    treatment_name VARCHAR(100) NOT NULL,
-    cost DECIMAL(10,2) NOT NULL,
-    notes VARCHAR(200),
+    treatment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    appointment_id INTEGER NOT NULL,
+    treatment_name TEXT NOT NULL,
+    cost REAL NOT NULL,
+    notes TEXT,
     FOREIGN KEY (appointment_id) REFERENCES appointments(appointment_id)
 );
  
 CREATE TABLE invoices (
-    invoice_id INT PRIMARY KEY AUTO_INCREMENT,
-    appointment_id INT NOT NULL UNIQUE,
-    total_amount DECIMAL(10,2) NOT NULL,
-    payment_status VARCHAR(20) DEFAULT 'Unpaid',
-    invoice_date DATE,
+    invoice_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    appointment_id INTEGER NOT NULL UNIQUE,
+    total_amount REAL NOT NULL,
+    payment_status TEXT DEFAULT 'Unpaid',
+    invoice_date TEXT,
     FOREIGN KEY (appointment_id) REFERENCES appointments(appointment_id)
 );
