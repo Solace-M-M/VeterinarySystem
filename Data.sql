@@ -1,3 +1,4 @@
+ 
 INSERT INTO owners (first_name, last_name, phone, email, address) VALUES
 ('Maria', 'Santos', '09171234567', 'maria.santos@email.com', '12 Rizal St, Imus, Cavite'),
 ('Juan', 'Dela Cruz', '09182345678', 'juan.delacruz@email.com', '45 Bonifacio Ave, Dasmarinas, Cavite'),
@@ -6,11 +7,11 @@ INSERT INTO owners (first_name, last_name, phone, email, address) VALUES
 ('Liza', 'Torres', '09215678901', 'liza.torres@email.com', '9 Luna St, General Trias, Cavite');
  
 INSERT INTO veterinarians (first_name, last_name, specialization, phone) VALUES
-('Dr. Michael', 'Lim', 'General Practice', '09221234567'),
-('Dr. Sarah', 'Cruz', 'Surgery', '09232345678'),
-('Dr. Kevin', 'Tan', 'Dermatology', '09243456789'),
-('Dr. Grace', 'Villanueva', 'Dentistry', '09254567890'),
-('Dr. Paolo', 'Ramos', 'General Practice', '09265678901');
+('Michael', 'Lim', 'General Practice', '09221234567'),
+('Sarah', 'Cruz', 'Surgery', '09232345678'),
+('Kevin', 'Tan', 'Dermatology', '09243456789'),
+('Grace', 'Villanueva', 'Dentistry', '09254567890'),
+('Paolo', 'Ramos', 'General Practice', '09265678901');
  
 INSERT INTO pets (owner_id, name, species, breed, birth_date) VALUES
 (1, 'Bantay', 'Dog', 'Aspin', '2021-03-15'),
@@ -41,3 +42,4 @@ INSERT INTO invoices (appointment_id, total_amount, payment_status, invoice_date
 (2, 350.00, 'Paid', '2026-08-02'),
 (3, 3800.00, 'Paid', '2026-08-03'),
 (5, 300.00, 'Unpaid', '2026-08-06');
+ 
